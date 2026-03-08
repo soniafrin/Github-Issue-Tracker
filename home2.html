@@ -33,12 +33,19 @@
     <!-- main section  -->
     <main class="bg-base-200 pt-14">
         <!-- toggle container -->
-        <section class="flex gap-2 w-10/12 mx-auto bg-base-100 p-6 rounded-lg  shadow-sm ">
-                    <button id="all-btn" onclick="toogleBtn(this)" class=" status-btn btn bg-[#4A00FF] text-white px-9">All</button>
-                
-                    <button onclick="toogleBtn(this)" class="status-btn btn  bg-white text-gray-500 px-9">Open</button>
-
-                    <button onclick="toogleBtn(this)" class="status-btn btn bg-white text-gray-500 px-9">Closed</button>
+        <section class=" ">
+            <div class="flex gap-2 w-10/12 mx-auto bg-base-100 p-6 rounded-lg  shadow-sm">
+                    <button onclick="displayAllIssues()" class="btn bg-[#4A00FF] text-white px-9">All</button>
+                    <div id="btn-container" class=" flex gap-2">
+        
+                    </div>
+            </div>
+            <!-- <div id="open-btn" class="">
+                    <button class="btn  bg-white text-gray-500 px-9">open</button>
+            </div>
+            <div class="">
+                    <button class="btn bg-white text-gray-500 px-9">Closed</button>
+            </div> -->
         </section>
 
         <!-- issue container  -->
@@ -85,13 +92,13 @@
                     </div>
                 </div>
                 <!-- loading spinner  -->
-                <div id="loading-spinner" class="hidden flex">
-                   <span class="loading loading-ring loading-xl w-20"></span>
+                <div id="loading-spinner" class="hidden bg-slate-700 absolute ">
+                   <span class="loading loading-ring loading-xl"></span>
                </div>
             </div>
 
          </section>
     </main>
-    <script src="home.js"></script>
+    <script src="home2.js"></script>
 </body>
 </html>
