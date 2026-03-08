@@ -16,7 +16,7 @@
         <div class="navbar flex justify-between w-11/12 mx-auto">
             <div class="flex justify-between items-center gap-2">
                 <img class="w-10" src="assets/github-logo.png" alt="">
-                <h2>GitHub Issues Tracker</h2>
+                <h2 class="text-2xl font-semibold">GitHub Issues Tracker</h2>
             </div>
             <div class="flex justify-between gap-3 flex-">
                 <div class="flex gap-2 ">
@@ -48,8 +48,8 @@
                 <div class="flex gap-2 items-center">
                     <img class="w-10" src="assets/Aperture.png" alt="">
                     <div>
-                        <h2>50 Issues</h2>
-                        <p>Track and manage your project issues</p>
+                        <h2 class="text-xl font-semibold"><span id="all-issue-count">50</span> Issues</h2>
+                        <p class="text-[16px] text-gray-500">Track and manage your project issues</p>
                     </div>
                 </div>
                 <!-- status -->
@@ -59,38 +59,29 @@
                 </div>
             </div>
             <!-- cards container -->
-            <div id="cards-container" class="grid grid-cols-3 gap-3 p-6 shadow-sm">
-                <!-- card  -->
-                <div class="hidden bg-base-100 p-4 space-y-3 rounded-md border-t-4 border-green-700 shadow-sm">
-                    <!-- status  -->
-                    <div class="flex justify-between items-center">
-                        <img  src="assets/Open-Status.png" alt="">
-                        <p class="bg-red-100 rounded-full px-6 py-1 text-red-500 font-medium text-xs">High</p>
-                    </div>
-                    <!-- titles -->
-                    <div class="space-y-3">
-                        <h3 class="font-semibold text-[14px]">Fix navigation menu on mobile devices</h3>
-                        <p class="text-xs">The navigation menu doesn't collapse properly on mobile devices...</p>
-                        <!-- labels -->
-                        <div class="flex justify-between items-center ">
-                            <p class="bg-red-100 rounded-full px-4 py-1 text-red-500 font-medium border border-red-500 text-xs"><i class="fa-solid fa-bug "></i>BUG</p>
-                            <p class="bg-yellow-100 rounded-full px-4 py-1 text-yellow-600 font-medium border border-yellow-600 text-xs"><i class="fa-solid fa-life-ring"></i>Help Wanted</p>
-                        </div>
-                    </div>
-                    <!-- end of card  -->
-                    <span class="text-gray-300"><hr></span>
-                    <div class="mt-1 space-y-1">
-                        <p class="text-gray-400 text-xs">#1 by john_doe</p>
-                        <p class="text-gray-400 text-xs">1/15/2024</p>
-                    </div>
-                </div>
+            <div id="cards-container" class="grid grid-cols-3 gap-3 p-6 shadow-sm hidden">
+               
                 <!-- loading spinner  -->
-                <div id="loading-spinner" class="hidden flex">
+                <div id="loading-spinner" class="hidden w-11/12 mx-auto">
                    <span class="loading loading-ring loading-xl w-20"></span>
                </div>
             </div>
-
          </section>
+        <!-- modal -->
+         <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
     </main>
     <script src="home.js"></script>
 </body>

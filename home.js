@@ -1,8 +1,10 @@
 let allIssues = [];
 
-
+const cardsContainer = document.getElementById("cards-container")
 function showLoading(){
 loadingSpinner.classList.remove("hidden")
+// cardsContainer.classList.add("hidden")
+
 }
 
 const loadingSpinner = document.getElementById("loading-spinner")
@@ -13,6 +15,8 @@ showLoading()
      allIssues = data.data;
      displayAllIssues(allIssues)
     loadingSpinner.classList.add("hidden")
+    cardsContainer.classList.remove("hidden")
+
 
     // console.log(allStatus[0].status)
     
@@ -21,14 +25,14 @@ showLoading()
 
 const displayAllIssues = (allIssues) =>{
     // console.log(allIssues)
-    const cardsContainer = document.getElementById("cards-container")
+    // const cardsContainer = document.getElementById("cards-container")
     cardsContainer.innerHTML= "";
     allIssues.forEach(issue => {
     const borderColor = issue.status === "open" ? "border-green-700" : "border-purple-700"
 // console.log(borderColor)
         const cardDiv = document.createElement("div")
         cardDiv.innerHTML = `
-        <div class="bg-base-100 p-4 space-y-3 rounded-md border-t-4 ${borderColor} shadow-sm">
+        <div onClick="my_modal_5.showModal()" class=" bg-base-100 p-4 space-y-3 rounded-md border-t-4 ${borderColor} shadow-sm">
                     <!-- status  -->
                     <div class="flex justify-between items-center">
                         <img  src="assets/Open-Status.png" alt="">
@@ -66,17 +70,23 @@ const toogleBtn=(clicked)=>{
     })
     clicked.classList.add("bg-[#4A00FF]", "text-white")
     const tab = clicked.innerText
-    console.log(tab)
+    const allIssueCount = document.getElementById("all-issue-count")
+
+
 if(tab === "All"){
-        loadAllIssues()
+    loadAllIssues()
+    allIssueCount.innerText= allIssues.length;
     }
 else if(tab === "Open"){
        const openIssues = allIssues.filter(issue => issue.status === "open")
-        displayAllIssues(openIssues)
+       displayAllIssues(openIssues)
+       allIssueCount.innerText= openIssues.length;
     }
 else if(tab === "Closed"){
        const closedIssues = allIssues.filter(issue => issue.status === "closed")
-        displayAllIssues(closedIssues)
+       //    console.log(closeCount)
+       displayAllIssues(closedIssues)
+       allIssueCount.innerText= closedIssues.length;
     }
 }
     
