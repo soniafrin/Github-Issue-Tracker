@@ -1,3 +1,4 @@
+const allIssueCount = document.getElementById("all-issue-count")
 let allIssues = [];
 // modals    
 const accessModal = document.getElementById("my_modal_5")
@@ -28,11 +29,10 @@ const loadAllIssues = async() =>{
     const fetchAllIssues = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues") 
    const data = await fetchAllIssues.json()
      allIssues = data.data;
+    allIssueCount.innerText= data.data.length;
      displayAllIssues(allIssues)
     hideLoading()
     cardsContainer.classList.remove("hidden")
-
-    
 }
 
 
@@ -86,12 +86,11 @@ const toogleBtn=(clicked)=>{
     })
     clicked.classList.add("bg-[#4A00FF]", "text-white")
     const tab = clicked.innerText
-    const allIssueCount = document.getElementById("all-issue-count")
 
 
 if(tab === "All"){
     loadAllIssues()
-        allIssueCount.innerText= allIssues.length;
+        
     }
 else if(tab === "Open"){
        const openIssues = allIssues.filter(issue => issue.status === "open")
@@ -123,14 +122,15 @@ mPriorityStatus.textContent = `${singleIssue.data.priority}`
 
 }
 loadAllIssues()
+
 const searchBtn = document.getElementById("search-btn").addEventListener("click", function (){
     const searchInput = document.getElementById("search-input")
     searchValue = searchInput.value.trim().toLowerCase();
     const fetchSeach = fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
     .then(res => res.json())
     .then(searchedData =>{ 
-        const filterdIssue = searchedData.data;
-    document.getElementById("filterd-issue").innerText= `${filterdIssue.length} Issues Found`;
-        displayAllIssues(searchedData.data)}) 
+       allIssues = searchedData.data;
+    allIssueCount.innerText= allIssues.length;
+        displayAllIssues(allIssues)}) 
 })
 
