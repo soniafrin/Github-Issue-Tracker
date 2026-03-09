@@ -13,13 +13,13 @@
 </head>
 <body class="">
     <header class="bg-base-100 shadow-sm">
-        <div class="navbar flex justify-between w-11/12 mx-auto">
+        <div class="navbar flex flex-col justify-between w-11/12 mx-auto space-y-4 mt-2 md:flex-row ">
             <div class="flex justify-between items-center gap-2">
                 <img class="w-10" src="assets/github-logo.png" alt="">
                 <h2 class="text-2xl font-semibold">GitHub Issues Tracker</h2>
             </div>
-            <div class="flex justify-between gap-3 flex-">
-                <div class="flex gap-2 ">
+            <div class=" flex  justify-between gap-3">
+                <div class="flex gap-2  ">
                     <!-- <i class="absolute top-3 opacity-65 left-1 z-1 fa-solid fa-magnifying-glass"></i> -->
                     <input id="search-input" type="text" value="" placeholder=" Search Issues..." class="input input-bordered w-24 md:w-auto" />
                 </div>
@@ -44,8 +44,8 @@
         <!-- issue container  -->
          <section class="w-10/12 mx-auto mt-4">
             <!-- issue count -->
-            <div class="flex justify-between bg-base-100  p-6 shadow-sm items-center ">
-                <div class="flex gap-2 items-center">
+            <div class=" flex flex-wrap space-y-4 justify-between bg-base-100 p-6 shadow-sm items-center  ">
+                <div class="flex gap-2 justify-center items-center ">
                     <img class="w-10" src="assets/Aperture.png" alt="">
                     <div>
                         <h2 id="filterd-issue" class="text-xl font-semibold"><span id="all-issue-count">50</span> Issues</h2>
@@ -53,13 +53,13 @@
                     </div>
                 </div>
                 <!-- status -->
-                <div class="flex gap-4 list-disc">
+                <div class="flex gap-4 list-disc mx-9">
                     <p><i class="fa-solid fa-circle text-green-700 text-xs"></i> Open</p>
                     <p><i class="fa-solid fa-circle text-purple-700 text-xs"></i> Closed</p>
                 </div>
             </div>
             <!-- cards container -->
-            <div id="cards-container" class="grid grid-cols-3 gap-3 p-6 shadow-sm hidden ">
+            <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-6 shadow-sm hidden ">
             </div>
             <!-- loading spinner  -->
             <section id="loading-spinner" class="hidden flex justify-center items-center  w-10/12 mx-auto">

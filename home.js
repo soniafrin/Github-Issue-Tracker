@@ -32,8 +32,6 @@ const loadAllIssues = async() =>{
     hideLoading()
     cardsContainer.classList.remove("hidden")
 
-
-    // console.log(allStatus[0].status)
     
 }
 
@@ -109,11 +107,11 @@ else if(tab === "Closed"){
 }
 
 const loadSingleIssue = async (id)=>{
-    console.log(id)
     accessModal.showModal()
    const fetchSingleIssue = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
    const singleIssue = await fetchSingleIssue.json()
 //    console.log(singleIssue.data)
+modalTitle.textContent = `${singleIssue.data.title}`
 modalStatus.textContent = `${singleIssue.data.status}`
 modalOpenDate.textContent = `${singleIssue.data.updatedAt}`
 modalLabelOne.textContent = `${singleIssue.data.labels[0]}`
@@ -128,7 +126,6 @@ loadAllIssues()
 const searchBtn = document.getElementById("search-btn").addEventListener("click", function (){
     const searchInput = document.getElementById("search-input")
     searchValue = searchInput.value.trim().toLowerCase();
-    console.log(searchValue)
     const fetchSeach = fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
     .then(res => res.json())
     .then(searchedData =>{ 
