@@ -1,5 +1,6 @@
 let allIssues = [];
-const accessModal = document.getElementById("my_modal_5")   
+// modals    
+const accessModal = document.getElementById("my_modal_5")
 const modalTitle = document.getElementById("modal-title")   
 const modalStatus = document.getElementById("modal-status")     
 const modalOpenDate = document.getElementById("open-date")   
@@ -9,34 +10,21 @@ const modalDescription = document.getElementById("modal-description")
 const modalAssine = document.getElementById("assine")   
 const modalAuthor = document.getElementById("modal-author")   
 const mPriorityStatus = document.getElementById("m-priority-status")  
-
-// modalStatus.textContent = `${singleIssue.data.status}`
-// modalOpenDate.textContent = `${singleIssue.data.updatedAt}`
-// modallabelOne.textContent = `${singleIssue.data.labels[0]}`
-// modallabelTwo.textContent = `${singleIssue.data.labels[1]}`
-// modalDescription.textContent = `${singleIssue.data.description}`
-// modalAssine.textContent = `${singleIssue.data.assignee}`
-// modalAuthor.textContent = `${singleIssue.data.author}`
-// mPriorityStatus.textContent = `${singleIssue.data.priority}`
-
-
-// console.log(modalTitle.textContent)
-// const modalId = document.getElementById("my_modal_5")
-
-// const openModal = () =>{
-//     my_modal_5.sh
-// }
+// cardsContainer
 const cardsContainer = document.getElementById("cards-container")
+
+// loading spinner 
+const loadingSpinner = document.getElementById("loading-spinner")
 function showLoading(){
 loadingSpinner.classList.remove("hidden")
 }
+showLoading()
+
 function hideLoading(){
 loadingSpinner.classList.add("hidden")
 }
 
-const loadingSpinner = document.getElementById("loading-spinner")
 const loadAllIssues = async() =>{
-showLoading()
     const fetchAllIssues = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues") 
    const data = await fetchAllIssues.json()
      allIssues = data.data;
@@ -85,7 +73,10 @@ const displayAllIssues = (allIssues) =>{
         cardsContainer.appendChild(cardDiv)
     });
 
+    
+
 }
+
 const toogleBtn=(clicked)=>{
     const allBtn = document.querySelectorAll(".status-btn")
     // console.log(allBtn)
@@ -102,7 +93,7 @@ const toogleBtn=(clicked)=>{
 
 if(tab === "All"){
     loadAllIssues()
-    allIssueCount.innerText= allIssues.length;
+        allIssueCount.innerText= allIssues.length;
     }
 else if(tab === "Open"){
        const openIssues = allIssues.filter(issue => issue.status === "open")
@@ -116,6 +107,7 @@ else if(tab === "Closed"){
        allIssueCount.innerText= closedIssues.length;
     }
 }
+
 const loadSingleIssue = async (id)=>{
     console.log(id)
     accessModal.showModal()
@@ -132,5 +124,16 @@ modalAuthor.textContent = `${singleIssue.data.author}`
 mPriorityStatus.textContent = `${singleIssue.data.priority}`
 
 }
-// loadSingleIssue()
 loadAllIssues()
+const searchBtn = document.getElementById("search-btn").addEventListener("click", function (){
+    const searchInput = document.getElementById("search-input")
+    searchValue = searchInput.value.trim().toLowerCase();
+    console.log(searchValue)
+    const fetchSeach = fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+    .then(res => res.json())
+    .then(searchedData =>{ 
+        const filterdIssue = searchedData.data;
+    document.getElementById("filterd-issue").innerText= `${filterdIssue.length} Issues Found`;
+        displayAllIssues(searchedData.data)}) 
+})
+

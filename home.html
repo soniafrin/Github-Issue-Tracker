@@ -21,11 +21,11 @@
             <div class="flex justify-between gap-3 flex-">
                 <div class="flex gap-2 ">
                     <!-- <i class="absolute top-3 opacity-65 left-1 z-1 fa-solid fa-magnifying-glass"></i> -->
-                    <input type="text" value="   Search Issues..." placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                    <input id="search-input" type="text" value="" placeholder=" Search Issues..." class="input input-bordered w-24 md:w-auto" />
                 </div>
                 <!-- button  -->
                 <div class="navbar-end">
-                    <button class="btn bg-[#4A00FF] text-white"><i class="fa-solid fa-plus"></i>New Issue</button>
+                    <button id="search-btn" class="btn bg-[#4A00FF] text-white"><i class="fa-solid fa-plus"></i>New Issue</button>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <div class="flex gap-2 items-center">
                     <img class="w-10" src="assets/Aperture.png" alt="">
                     <div>
-                        <h2 class="text-xl font-semibold"><span id="all-issue-count">50</span> Issues</h2>
+                        <h2 id="filterd-issue" class="text-xl font-semibold"><span id="all-issue-count">50</span> Issues</h2>
                         <p class="text-[16px] text-gray-500">Track and manage your project issues</p>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
             <div id="cards-container" class="grid grid-cols-3 gap-3 p-6 shadow-sm hidden ">
             </div>
             <!-- loading spinner  -->
-            <section id="loading-spinner" class="hidden flex justify-center items-center  w-10/12 mx-auto shadow-sm ">
+            <section id="loading-spinner" class="hidden flex justify-center items-center  w-10/12 mx-auto">
                <span class="loading loading-ring loading-xl w-25 "></span>
            </section>
         </section>
