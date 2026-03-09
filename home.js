@@ -29,8 +29,9 @@ const mPriorityStatus = document.getElementById("m-priority-status")
 const cardsContainer = document.getElementById("cards-container")
 function showLoading(){
 loadingSpinner.classList.remove("hidden")
-// cardsContainer.classList.add("hidden")
-
+}
+function hideLoading(){
+loadingSpinner.classList.add("hidden")
 }
 
 const loadingSpinner = document.getElementById("loading-spinner")
@@ -40,7 +41,7 @@ showLoading()
    const data = await fetchAllIssues.json()
      allIssues = data.data;
      displayAllIssues(allIssues)
-    loadingSpinner.classList.add("hidden")
+    hideLoading()
     cardsContainer.classList.remove("hidden")
 
 
