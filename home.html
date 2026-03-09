@@ -71,13 +71,44 @@
          <!-- Open the modal using ID.showModal() method -->
 <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Hello!</h3>
-    <p class="py-4">Press ESC key or click the button below to close</p>
+  <div id="modal-card" class="modal-box">
+     <!-- card  -->
+                <div class=" bg-base-100 p-4 space-y-3 rounded-md ">
+                    <!-- titles -->
+                    <div  class="space-y-3">
+                        <h3 id="modal-title" class="font-semibold text-xl">Fix broken image uploads</h3>
+                    </div>
+                    <!-- status  -->
+                     <div class="flex justify-between items-center">
+                        <p id="modal-status" class=" rounded-full text-white px-3 py-1 font-medium bg-green-600 text-xs ">Opened</p>
+                        <p  class="text-xs font-medium">Opened by Fahim Ahmed -</p>
+                        <p id="open-date" class="text-xs font-medium">22/02/2026</p>
+                     </div>
+                    
+                    <!-- labels -->
+                    <div class="flex gap-2 ">
+                            <p id="modal-label-one" class="bg-red-100 rounded-full px-4 py-1 text-red-500 font-medium border border-red-500 text-xs"><i class="fa-solid fa-bug "></i>BUG</p>
+                            <p id="modal-label-two" class="bg-yellow-100 rounded-full px-4 py-1 text-yellow-600 font-medium border border-yellow-600 text-xs"><i class="fa-solid fa-life-ring"></i>Help Wanted</p>
+                    </div>
+                    <p id="modal-description" class="text-xs">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+                    <!-- end of card  -->
+                     <!-- status  -->
+                    <div class="flex justify-between">
+                        <div class="flex flex-col ">
+                        <p id="assine">Assinee</p>
+                        <p id="modal-author">Fahim Ahmed</p>
+                        
+                    </div>
+                    <div class="flex flex-col">
+                        <p id="modal-priority">Priority</p>
+                        <p id="m-priority-status" class="bg-red-500 rounded-full px-6 py-1 text-white font-medium text-xs">High</p>
+                    </div>
+                    </div>
+                </div>
     <div class="modal-action">
       <form method="dialog">
         <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
+        <button class="btn btn-primary border-0">Close</button>
       </form>
     </div>
   </div>

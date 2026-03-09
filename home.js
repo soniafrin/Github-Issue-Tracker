@@ -1,5 +1,31 @@
 let allIssues = [];
+const accessModal = document.getElementById("my_modal_5")   
+const modalTitle = document.getElementById("modal-title")   
+const modalStatus = document.getElementById("modal-status")     
+const modalOpenDate = document.getElementById("open-date")   
+const modalLabelOne = document.getElementById("modal-label-one")   
+const modalLabelTwo = document.getElementById("modal-label-two")   
+const modalDescription = document.getElementById("modal-description")   
+const modalAssine = document.getElementById("assine")   
+const modalAuthor = document.getElementById("modal-author")   
+const mPriorityStatus = document.getElementById("m-priority-status")  
 
+// modalStatus.textContent = `${singleIssue.data.status}`
+// modalOpenDate.textContent = `${singleIssue.data.updatedAt}`
+// modallabelOne.textContent = `${singleIssue.data.labels[0]}`
+// modallabelTwo.textContent = `${singleIssue.data.labels[1]}`
+// modalDescription.textContent = `${singleIssue.data.description}`
+// modalAssine.textContent = `${singleIssue.data.assignee}`
+// modalAuthor.textContent = `${singleIssue.data.author}`
+// mPriorityStatus.textContent = `${singleIssue.data.priority}`
+
+
+// console.log(modalTitle.textContent)
+// const modalId = document.getElementById("my_modal_5")
+
+// const openModal = () =>{
+//     my_modal_5.sh
+// }
 const cardsContainer = document.getElementById("cards-container")
 function showLoading(){
 loadingSpinner.classList.remove("hidden")
@@ -32,7 +58,7 @@ const displayAllIssues = (allIssues) =>{
 // console.log(borderColor)
         const cardDiv = document.createElement("div")
         cardDiv.innerHTML = `
-        <div onClick="my_modal_5.showModal()" class=" bg-base-100 p-4 space-y-3 rounded-md border-t-4 ${borderColor} shadow-sm">
+        <div onClick="loadSingleIssue(${issue.id})" class=" bg-base-100 p-4 space-y-3 rounded-md border-t-4 ${borderColor} shadow-sm">
                     <!-- status  -->
                     <div class="flex justify-between items-center">
                         <img  src="assets/Open-Status.png" alt="">
@@ -89,5 +115,21 @@ else if(tab === "Closed"){
        allIssueCount.innerText= closedIssues.length;
     }
 }
-    
+const loadSingleIssue = async (id)=>{
+    console.log(id)
+    accessModal.showModal()
+   const fetchSingleIssue = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+   const singleIssue = await fetchSingleIssue.json()
+//    console.log(singleIssue.data)
+modalStatus.textContent = `${singleIssue.data.status}`
+modalOpenDate.textContent = `${singleIssue.data.updatedAt}`
+modalLabelOne.textContent = `${singleIssue.data.labels[0]}`
+modalLabelTwo.textContent = `${singleIssue.data.labels[1]}`
+modalDescription.textContent = `${singleIssue.data.description}`
+modalAssine.textContent = `${singleIssue.data.assignee}`
+modalAuthor.textContent = `${singleIssue.data.author}`
+mPriorityStatus.textContent = `${singleIssue.data.priority}`
+
+}
+// loadSingleIssue()
 loadAllIssues()

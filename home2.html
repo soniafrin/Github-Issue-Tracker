@@ -68,27 +68,27 @@
             <!-- cards container -->
             <div id="cards-container" class="grid grid-cols-3 gap-3 p-6 shadow-sm">
                 <!-- card  -->
-                <div class="hidden bg-base-100 p-4 space-y-3 rounded-md border-t-4 border-green-700 shadow-sm">
+                <div class=" bg-base-100 p-4 space-y-3 rounded-md border-t-4 ${borderColor} shadow-sm">
                     <!-- status  -->
                     <div class="flex justify-between items-center">
                         <img  src="assets/Open-Status.png" alt="">
-                        <p class="bg-red-100 rounded-full px-6 py-1 text-red-500 font-medium text-xs">High</p>
+                        <p class="bg-red-100 rounded-full px-6 py-1 text-red-500 font-medium text-xs">${issue.priority}</p>
                     </div>
                     <!-- titles -->
                     <div class="space-y-3">
-                        <h3 class="font-semibold text-[14px]">Fix navigation menu on mobile devices</h3>
-                        <p class="text-xs">The navigation menu doesn't collapse properly on mobile devices...</p>
+                        <h3 class="font-semibold text-[14px]">${issue.title}</h3>
+                        <p class="text-xs">${issue.description}</p>
                         <!-- labels -->
                         <div class="flex justify-between items-center ">
-                            <p class="bg-red-100 rounded-full px-4 py-1 text-red-500 font-medium border border-red-500 text-xs"><i class="fa-solid fa-bug "></i>BUG</p>
-                            <p class="bg-yellow-100 rounded-full px-4 py-1 text-yellow-600 font-medium border border-yellow-600 text-xs"><i class="fa-solid fa-life-ring"></i>Help Wanted</p>
+                            <p class="bg-red-100 rounded-full px-4 py-1 text-red-500 font-medium border border-red-500 text-xs"><i class="fa-solid fa-bug "></i>${issue.labels[0]}</p>
+                            <p class="bg-yellow-100 rounded-full px-4 py-1 text-yellow-600 font-medium border border-yellow-600 text-xs"><i class="fa-solid fa-life-ring"></i>${issue.labels[1]}</p>
                         </div>
                     </div>
                     <!-- end of card  -->
                     <span class="text-gray-300"><hr></span>
                     <div class="mt-1 space-y-1">
-                        <p class="text-gray-400 text-xs">#1 by john_doe</p>
-                        <p class="text-gray-400 text-xs">1/15/2024</p>
+                        <p class="text-gray-400 text-xs">${issue.author}</p>
+                        <p class="text-gray-400 text-xs">${issue.createdAt}</p>
                     </div>
                 </div>
                 <!-- loading spinner  -->
@@ -99,6 +99,7 @@
 
          </section>
     </main>
-    <script src="home2.js"></script>
+    <!-- <script src="home2.js"></script> -->
+    
 </body>
 </html>

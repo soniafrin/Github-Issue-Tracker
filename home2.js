@@ -49,7 +49,7 @@ const displayAllIssues = (apiDatas) =>{
     apiDatas.forEach(issue => {
         const cardDiv = document.createElement("div")
         cardDiv.innerHTML = `
-        <div class=" bg-base-100 p-4 space-y-3 rounded-md border-t-4 border-green-700 shadow-sm">
+        <div class="hidden bg-base-100 p-4 space-y-3 rounded-md border-t-4 border-green-700 shadow-sm">
                     <!-- status  -->
                     <div class="flex justify-between items-center">
                         <img  src="assets/Open-Status.png" alt="">
