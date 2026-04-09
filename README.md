@@ -1,5 +1,106 @@
+This project is a simple GitHub Issue Tracker built with HTML, CSS, and JavaScript.
 
-    - 1️⃣ What is the difference between var, let, and const?
+Tech Stack:
+    HTML
+    CSS
+    JavaScript
+    TailwindCSS (configured in tailwind.config.js)
+
+Features:
+    Displays common JavaScript interview questions
+    Shows answers inside the UI
+    Simple search functionality
+    Clean, minimal interface
+
+Dependencies:
+    TailwindCSS (via config file)
+    No external JS libraries
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    1️⃣ What is the difference between var, let, and const?
     Ans: These are the variables behave depends on scope, hoising and re-assingment. var and let can be re-assined but const cant. var can be redeclare but const and let can't be.
 
     - 2️⃣ What is the spread operator (...)?
